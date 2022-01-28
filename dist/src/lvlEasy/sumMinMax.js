@@ -1,15 +1,18 @@
 "use strict";
 function miniMaxSum(arr) {
     var aux;
-    for (var i = 1; i < arr.length; i++) {
-        for (var j = 0; j < (arr.length - i); j++) {
-            if (arr[i] > arr[i + 1]) {
-                aux = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = aux;
+    var i;
+    var j;
+    var n = arr.length;
+    for (i = 1; i < n; i++) {
+        for (j = 0; j < (n - i); j++) {
+            if (arr[j] > arr[j + 1]) {
+                aux = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = aux;
             }
         }
     }
     console.log(arr);
 }
-miniMaxSum([10, 3, 5, 8, 1, 9]);
+miniMaxSum([-5, 10, 3, 5, 8, 1, 9]);
