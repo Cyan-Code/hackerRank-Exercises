@@ -1,23 +1,17 @@
 
-function miniMaxSum(arr: number[]): void {
-  
-  const quickSort = (arr:number[]): number[] => {
-    const arrm:number[] = [];
-    const right:number[] = [];
-    const left:number[] = [];
-    const pivot:number = arr[0];
-  
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] > pivot) {
-        right.push(arr[i]);
-      } else {
-        left.push(arr[i])
+function miniMaxSum(arr: number[]): void {  
+  let aux:number;
+
+  for (let i = 1; i < arr.length; i++) {
+    for (let j = 0; j < (arr.length-i); j++) {
+      if (arr[i] > arr[i+1]) {
+        aux = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = aux;
       }
     }
-    return arrm.concat(quickSort(left), pivot, quickSort(right));
   }
-  console.log(quickSort);
+  console.log(arr);
 }
-
-miniMaxSum([-5,10, 3, 5, 8, 1, 9])
+miniMaxSum([10, 3, 5, 8, 1, 9]);
 
