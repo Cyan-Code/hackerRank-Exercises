@@ -1,18 +1,21 @@
 
-function miniMaxSum(arr: number[]): void {  
-  let max:number = arr[0];
-  let counter:number = 0;
-  for (let k = 0; k < arr.length; k++) {
-    if (max<arr[k]) {
-      max = arr[k];
-    }
+function timeComverter(s: string): string {  
+
+  const momentDay:string = s.charAt(8)
+  let format:string = ''; 
+  switch (momentDay) {
+    case 'A':
+      {/TODO:  expresion regular par el Numero 12/}
+      break;
+      
+    case 'P':
+      
+      break;
+  
+    default:
+      break;
   }
-  arr.find( element => {
-    if (element === max) {
-      counter++
-    }
-  })
-  console.log(counter);
+  return format;
 }
-miniMaxSum([5, 4, 5, 3, 2, 1, 10, 10,10]);
+console.log(timeComverter('00:00:00AM'));
 
