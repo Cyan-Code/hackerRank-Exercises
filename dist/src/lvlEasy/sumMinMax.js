@@ -1,27 +1,24 @@
 "use strict";
 function miniMaxSum(arr) {
-    /* let aux, i, j:number;
-    let n:number = arr.length;
+    var aux, i, j;
+    var n = arr.length;
     for (i = 1; i < n; i++) {
-      for (j = 0; j < (n-i); j++) {
-        if (arr[j] > arr[j+1]) {
-          aux = arr[j];
-          arr[j] = arr[j+1];
-          arr[j+1] = aux;
-        }
-      }
-    }
-    console.log(arr); */
-    var menor = arr[0];
-    var mayor = arr[0];
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i + 1] < menor) {
-            menor = arr[i + 1];
-        }
-        else if (arr[i + 1] > mayor) {
-            mayor = arr[i + 1];
+        for (j = 0; j < (n - i); j++) {
+            if (arr[j] > arr[j + 1]) {
+                aux = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = aux;
+            }
         }
     }
-    console.log(menor, mayor);
+    var sumMax = 0;
+    for (var k = 1; k < arr.length; k++) {
+        sumMax = sumMax + arr[k];
+    }
+    var sumMin = 0;
+    for (var k = 0; k < (arr.length - 1); k++) {
+        sumMin = sumMin + arr[k];
+    }
+    console.log(sumMin, sumMax);
 }
-miniMaxSum([-5, 10, 3, 5, 8, 1, 9]);
+miniMaxSum([5, 4, 3, 2, 1]);
