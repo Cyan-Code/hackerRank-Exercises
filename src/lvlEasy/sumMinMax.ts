@@ -1,25 +1,18 @@
 
 function miniMaxSum(arr: number[]): void {  
-  let aux, i, j:number;
-  let n:number = arr.length;
-  for (i = 1; i < n; i++) {
-    for (j = 0; j < (n-i); j++) {
-      if (arr[j] > arr[j+1]) {
-        aux = arr[j];
-        arr[j] = arr[j+1];
-        arr[j+1] = aux;
-      }
+  let max:number = arr[0];
+  let counter:number = 0;
+  for (let k = 0; k < arr.length; k++) {
+    if (max<arr[k]) {
+      max = arr[k];
     }
   }
-  let sumMax:number = 0;
-  for (let k = 1; k < arr.length; k++) {
-    sumMax = sumMax + arr[k]
-  }
-  let sumMin:number = 0;
-  for (let k = 0; k < (arr.length-1); k++) {
-    sumMin = sumMin + arr[k]
-  }
-  console.log(sumMin, sumMax);
+  arr.find( element => {
+    if (element === max) {
+      counter++
+    }
+  })
+  console.log(counter);
 }
-miniMaxSum([5, 4, 3, 2, 1]);
+miniMaxSum([5, 4, 5, 3, 2, 1, 10, 10,10]);
 

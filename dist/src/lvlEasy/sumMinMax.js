@@ -1,24 +1,17 @@
 "use strict";
 function miniMaxSum(arr) {
-    var aux, i, j;
-    var n = arr.length;
-    for (i = 1; i < n; i++) {
-        for (j = 0; j < (n - i); j++) {
-            if (arr[j] > arr[j + 1]) {
-                aux = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = aux;
-            }
+    var max = arr[0];
+    var counter = 0;
+    for (var k = 0; k < arr.length; k++) {
+        if (max < arr[k]) {
+            max = arr[k];
         }
     }
-    var sumMax = 0;
-    for (var k = 1; k < arr.length; k++) {
-        sumMax = sumMax + arr[k];
-    }
-    var sumMin = 0;
-    for (var k = 0; k < (arr.length - 1); k++) {
-        sumMin = sumMin + arr[k];
-    }
-    console.log(sumMin, sumMax);
+    arr.find(function (element) {
+        if (element === max) {
+            counter++;
+        }
+    });
+    console.log(counter);
 }
-miniMaxSum([5, 4, 3, 2, 1]);
+miniMaxSum([5, 4, 5, 3, 2, 1, 10, 10, 10]);
