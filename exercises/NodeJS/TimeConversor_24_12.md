@@ -2,7 +2,7 @@
 
 
 ### Code:
-~~~
+~~~js
 const conversor = (s='') => {
     if (    s.length === 9 ||
             parseInt(s.slice(0, 2))>13 ||
